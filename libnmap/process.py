@@ -5,7 +5,7 @@ import os
 import shlex
 import subprocess
 from threading import Thread
-from xml.dom import pulldom
+from defusedxml import pulldom
 import warnings
 import platform
 try:

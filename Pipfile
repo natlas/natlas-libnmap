@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+nose = "*"
+pymongo = "*"
+sqlalchemy = "*"
+pymysql = "*"
+black = "*"
+flake8 = "*"
+
+[packages]
+defusedxml = "*"
+
+[requires]
+python_version = "3.8"

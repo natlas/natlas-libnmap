@@ -5,8 +5,12 @@ try:
     import xml.etree.cElementTree as ET
 except ImportError:
     import xml.etree.ElementTree as ET
+
+import defusedxml
+
 from libnmap.objects import NmapHost, NmapService, NmapReport
 
+defusedxml.defuse_stdlib()
 
 class NmapParser(object):
     @classmethod
@@ -87,7 +91,7 @@ class NmapParser(object):
             nmap_data += "</nmaprun>"
 
         try:
-            root = ET.fromstring(nmap_data)
+            root = defusedxml.cElementTree.fromstring(nmap_data)
         except:
             raise NmapParserException("Wrong XML structure: cannot parse data")
 

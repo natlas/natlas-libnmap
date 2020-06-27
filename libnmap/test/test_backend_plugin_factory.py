@@ -54,15 +54,15 @@ class TestNmapBackendPlugin(unittest.TestCase):
             nrp = NmapParser.parse(s)
             self.reportList.append(nrp)
 
-        self.urls = [{'plugin_name': "mongodb"},
+        self.urls = [#{'plugin_name': "mongodb"},
                      #{'plugin_name':'sql','url':'sqlite://','echo':'debug'},
                      {'plugin_name': 'sql',
                          'url': 'sqlite:////tmp/reportdb.sql',
                          'echo': False},
-                     {'plugin_name': 'sql',
+                     #{'plugin_name': 'sql',
                          #'url': 'mysql+mysqldb://root@localhost/poulet', (mySQL-Python not supporting python3)
-                         'url': 'mysql+pymysql://root@localhost/poulet',
-                         'echo': False},
+                    #    'url': 'mysql+pymysql://root@localhost/poulet',
+                    #    'echo': False},
                      #Walrus
                      ###{'plugin_name': 's3',
                      ###    'aws_access_key_id': 'UU72FLVJCAYRATLXI70YH',

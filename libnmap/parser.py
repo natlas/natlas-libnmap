@@ -221,20 +221,15 @@ class NmapParser(object):
             nreport["_scaninfo"] = r["_scaninfo"]
             nreport["_nmaprun"] = r["_nmaprun"]
             hlist = []
+            cname = "__NmapService__"
             for h in r["_hosts"]:
-                slist = []
-                for s in h["__NmapHost__"]["_services"]:
-                    cname = "__NmapService__"
-                    slist.append(
-                        NmapService(
+                slist = [NmapService(
                             portid=s[cname]["_portid"],
                             protocol=s[cname]["_protocol"],
                             state=s[cname]["_state"],
                             owner=s[cname]["_owner"],
                             service=s[cname]["_service"],
-                        )
-                    )
-
+                        ) for s in h["__NmapHost__"]["_services"]]
                 nh = NmapHost(
                     starttime=h["__NmapHost__"]["_starttime"],
                     endtime=h["__NmapHost__"]["_endtime"],
@@ -322,10 +317,9 @@ class NmapParser(object):
             _stime = _host_header["starttime"]
         if "endtime" in _host_header:
             _etime = _host_header["endtime"]
-        nhost = NmapHost(
+        return NmapHost(
             _stime, _etime, _addresses, _status, _hostnames, _services, _host_extras
         )
-        return nhost
 
     @classmethod
     def __parse_hostnames(cls, scanhostnames_data):
@@ -420,10 +414,9 @@ class NmapParser(object):
                 "portid, protocol or state or tag."
             )
 
-        nport = NmapService(
+        return NmapService(
             _portid, _protocol, _state, _service, _owner, _service_extras
         )
-        return nport
 
     @classmethod
     def __parse_service(cls, xserv):

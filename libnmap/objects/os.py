@@ -335,13 +335,11 @@ class NmapOSFingerprint(object):
 
     @property
     def osmatches(self, min_accuracy=0):
-        _osmatches = []
-
-        for _osmatch in self.__osmatches:
-            if _osmatch.accuracy >= min_accuracy:
-                _osmatches.append(_osmatch)
-
-        return _osmatches
+        return [
+            _osmatch
+            for _osmatch in self.__osmatches
+            if _osmatch.accuracy >= min_accuracy
+        ]
 
     @property
     def osclasses(self, min_accuracy=0):
@@ -375,11 +373,11 @@ class NmapOSFingerprint(object):
             "use NmapOSFingerprint.osmatches",
             DeprecationWarning,
         )
-        os_array = []
-        for _osmatch in self.__osmatches:
-            if _osmatch.accuracy >= min_accuracy:
-                os_array.append(_osmatch.name)
-        return os_array
+        return [
+            _osmatch.name
+            for _osmatch in self.__osmatches
+            if _osmatch.accuracy >= min_accuracy
+        ]
 
     def osclass(self, min_accuracy=90):
         warnings.warn(

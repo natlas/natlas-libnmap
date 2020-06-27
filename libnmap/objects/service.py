@@ -231,7 +231,6 @@ class NmapService(object):
 
             :return: string
         """
-        notrelevant = ["name", "method", "conf", "cpelist", "servicefp", "tunnel"]
         relevant = ["product", "version", "extrainfo"]
         b = ""
         skeys = self._service.keys()
@@ -239,6 +238,7 @@ class NmapService(object):
             for relk in relevant:
                 if relk in skeys:
                     b += "{0}: {1} ".format(relk, self._service[relk])
+            notrelevant = ["name", "method", "conf", "cpelist", "servicefp", "tunnel"]
             for mkey in skeys:
                 if mkey not in notrelevant and mkey not in relevant:
                     b += "{0}: {1} ".format(mkey, self._service[mkey])

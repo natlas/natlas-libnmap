@@ -28,5 +28,4 @@ class ReportEncoder(json.JSONEncoder):
 
 class ReportDecoder(json.JSONDecoder):
     def decode(self, json_str):
-        r = NmapParser.parse_fromdict(json.loads(json_str))
-        return r
+        return NmapParser.parse_fromdict(json.loads(json_str))

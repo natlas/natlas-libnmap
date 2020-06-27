@@ -1,3 +1,5 @@
+v0.7.1, 27/06/2020 -- Fix CVE-2019-1010017
+                    - Black-ify codebase
 v0.7.0, 28/02/2016 -- A few bugfixes
                     - fixe of endless loop in Nmap.Process. Fix provided by @rcarrillo, many thanks!
 v0.6.3, 18/08/2015 -- Merged pull requests for automatic pypi upload, thanks @bmx0r
@@ -74,7 +76,7 @@ v0.4.3, 14/03/2014 -- Lots of bug corrections - Warning small changes in API:
                       - API change for NmapService.scripts_results:
                           NmapService.scripts_results is now a property
                           NmapService.scripts_results return an array of scripts results
-                  
+
                       - fix issue#9 address field not correcly parsed:
                         MAC Address would erase an ipv4 address type.
                       - added new properties in hosts object API:

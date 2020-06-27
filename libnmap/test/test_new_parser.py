@@ -4,6 +4,17 @@
 import unittest
 from libnmap.parser import NmapParser, NmapParserException
 
+external_entities_payload = """
+<!DOCTYPE lolz [
+ <!ENTITY lol "lol">
+ <!ELEMENT lolz (#PCDATA)>
+ <!ENTITY lol1 "&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;">
+ <!ENTITY lol2 "&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;">
+ <!ENTITY lol3 "&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;">
+]>
+<lolz><hello>&lol3;</hello></lolz>
+"""
+
 baddatalist = [
     "<host>aaa",
     None,
@@ -13,6 +24,7 @@ baddatalist = [
     "<port<>",
     "<port/>",
     "<ports/aaaa>",
+    external_entities_payload,
 ]
 
 

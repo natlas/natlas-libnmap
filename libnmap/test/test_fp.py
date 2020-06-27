@@ -33,10 +33,8 @@ class TestNmapFP(unittest.TestCase):
             for _host in rep.hosts:
                 if file_e["os"] != 0:
                     self.assertTrue(_host.os_fingerprinted)
-                elif file_e["os"] == 0:
-                    self.assertFalse(_host.os_fingerprinted)
                 else:
-                    raise Exception
+                    self.assertFalse(_host.os_fingerprinted)
 
     def test_osclasses_new(self):
         oclines = [
@@ -142,8 +140,7 @@ class TestNmapFP(unittest.TestCase):
             ],
         ]
         rep = NmapParser.parse_fromfile(self.flist_os["nv6"]["file"])
-        hlist = []
-        hlist.append(rep.hosts.pop())
+        hlist = [rep.hosts.pop()]
         hlist.append(rep.hosts.pop())
         i = 0
         j = 0
@@ -167,8 +164,7 @@ class TestNmapFP(unittest.TestCase):
 
     def test_osmatches_new(self):
         rep = NmapParser.parse_fromfile(self.flist_os["nv6"]["file"])
-        hlist = []
-        hlist.append(rep.hosts.pop())
+        hlist = [rep.hosts.pop()]
         hlist.append(rep.hosts.pop())
 
         baseline = [

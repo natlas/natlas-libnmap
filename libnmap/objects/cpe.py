@@ -22,7 +22,7 @@ class CPE(object):
             "edition",
             "language",
         ]
-        self._cpedict = dict((k, "") for k in zk)
+        self._cpedict = {k: "" for k in zk}
         splitup = cpestring.split(":")
         self._cpedict.update(dict(zip(zk, splitup)))
 

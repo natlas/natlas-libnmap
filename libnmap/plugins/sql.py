@@ -64,8 +64,7 @@ class NmapSqlPlugin(NmapBackendPlugin):
 
         def decode(self):
             json_decoded = self.report_json.decode("utf-8")
-            nmap_report_obj = json.loads(json_decoded, cls=ReportDecoder)
-            return nmap_report_obj
+            return json.loads(json_decoded, cls=ReportDecoder)
 
     def __init__(self, **kwargs):
         """

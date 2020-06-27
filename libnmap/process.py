@@ -347,11 +347,7 @@ class NmapProcess(Thread):
 
         :return: True if nmap process is not running anymore.
         """
-        return (
-            self.state == self.DONE
-            or self.state == self.FAILED
-            or self.state == self.CANCELLED
-        )
+        return self.state in [self.DONE, self.FAILED, self.CANCELLED]
 
     def has_failed(self):
         """
@@ -450,8 +446,7 @@ class NmapProcess(Thread):
         return rval
 
     def __build_windows_cmdline(self):
-        cmdline = []
-        cmdline.append(self.__nmap_binary)
+        cmdline = [self.__nmap_binary]
         if self.__nmap_fixed_options:
             cmdline += self.__nmap_fixed_options.split()
         if self.__nmap_dynamic_options:

@@ -32,8 +32,7 @@ class NmapElasticsearchPlugin(NmapBackendPlugin):
             doc_type = "NmapReport"
         j = json.dumps(report, cls=ReportEncoder)
         res = self._esapi.index(index=self.index, doc_type=doc_type, body=json.loads(j))
-        rc = res["_id"]
-        return rc
+        return res["_id"]
 
     def delete(self, id):
         """
@@ -48,8 +47,9 @@ class NmapElasticsearchPlugin(NmapBackendPlugin):
             :param id: str
             :return: NmapReport
         """
-        res = self._esapi.get(index=self.index, doc_type="NmapReport", id=id)["_source"]
-        return res
+        return self._esapi.get(index=self.index, doc_type="NmapReport", id=id)[
+            "_source"
+        ]
 
     def getall(self, filter=None):
         """

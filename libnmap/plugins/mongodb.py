@@ -17,6 +17,7 @@ class NmapMongodbPlugin(NmapBackendPlugin):
         {'plugin_name': "mongodb"} this dict may reeive all the param
         MongoClient() support
     """
+
     def __init__(self, dbname=None, store=None, **kwargs):
         NmapBackendPlugin.__init__(self)
         if dbname is not None:
@@ -51,12 +52,12 @@ class NmapMongodbPlugin(NmapBackendPlugin):
 
         if isinstance(rid, ObjectId):
             # get a specific report by mongo's id
-            resultset = self.collection.find({'_id': rid})
+            resultset = self.collection.find({"_id": rid})
             if resultset.count() == 1:
                 # search by id means only one in the iterator
                 record = resultset[0]
                 # remove mongo's id to recreate the NmapReport Obj
-                del record['_id']
+                del record["_id"]
                 nmapreport = NmapParser.parse_fromdict(record)
         return nmapreport
 
@@ -67,8 +68,8 @@ class NmapMongodbPlugin(NmapBackendPlugin):
         nmapreportlist = []
         resultset = self.collection.find()
         for report in resultset:
-            oid = report['_id']
-            del report['_id']
+            oid = report["_id"]
+            del report["_id"]
             nmapreport = NmapParser.parse_fromdict(report)
             nmapreportlist.append((oid, nmapreport))
         return nmapreportlist
@@ -80,6 +81,6 @@ class NmapMongodbPlugin(NmapBackendPlugin):
             :return: dict document with result or None
         """
         if report_id is not None and isinstance(report_id, str):
-            return self.collection.remove({'_id': ObjectId(report_id)})
+            return self.collection.remove({"_id": ObjectId(report_id)})
         else:
-            return self.collection.remove({'_id': report_id})
+            return self.collection.remove({"_id": report_id})

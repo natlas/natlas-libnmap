@@ -223,13 +223,16 @@ class NmapParser(object):
             hlist = []
             cname = "__NmapService__"
             for h in r["_hosts"]:
-                slist = [NmapService(
-                            portid=s[cname]["_portid"],
-                            protocol=s[cname]["_protocol"],
-                            state=s[cname]["_state"],
-                            owner=s[cname]["_owner"],
-                            service=s[cname]["_service"],
-                        ) for s in h["__NmapHost__"]["_services"]]
+                slist = [
+                    NmapService(
+                        portid=s[cname]["_portid"],
+                        protocol=s[cname]["_protocol"],
+                        state=s[cname]["_state"],
+                        owner=s[cname]["_owner"],
+                        service=s[cname]["_service"],
+                    )
+                    for s in h["__NmapHost__"]["_services"]
+                ]
                 nh = NmapHost(
                     starttime=h["__NmapHost__"]["_starttime"],
                     endtime=h["__NmapHost__"]["_endtime"],

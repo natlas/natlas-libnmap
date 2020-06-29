@@ -2,12 +2,14 @@
 
 ## Code status
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/660913964e02d6d90e1c/maintainability)](https://codeclimate.com/github/natlas/natlas-libnmap/maintainability)
 [![Release](https://img.shields.io/github/release/natlas/natlas-libnmap.svg)](https://github.com/natlas/natlas-libnmap/releases/latest)
 ![Last Commit](https://img.shields.io/github/last-commit/natlas/natlas-libnmap.svg)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/natlas-libnmap)](https://pypi.org/project/natlas-libnmap/0.7.1/)
 ![Code Size](https://img.shields.io/github/languages/code-size/natlas/natlas-libnmap.svg)
 [![Contributors](https://img.shields.io/github/contributors/natlas/natlas-libnmap.svg)](https://github.com/natlas/natlas-libnmap/graphs/contributors)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/660913964e02d6d90e1c/maintainability)](https://codeclimate.com/github/natlas/natlas-libnmap/maintainability)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/natlas/natlas-libnmap.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/natlas/natlas-libnmap/alerts/)
 
 ## Summary
 

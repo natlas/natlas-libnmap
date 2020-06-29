@@ -2,7 +2,7 @@
 from distutils.core import setup
 import libnmap
 
-with open("README.rst") as rfile:
+with open("README.md") as rfile:
     long_description = rfile.read()
 
 setup(
@@ -18,16 +18,11 @@ setup(
         "parse and compare/diff scan results"
     ),
     long_description=long_description,
+    long_description_content_type="text/markdown",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.6",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Topic :: System :: Networking",
     ],

@@ -52,10 +52,8 @@ The old version of libnmap supported many versions of python going back to 2.7. 
 
 ## Install
 
-This version of libnmap has not been packaged for distribution on pypi as of yet. In the meantime, you can install it with pip directly from the git repo like so:
-
 ```bash
-pip install git+https://github.com/natlas/natlas-libnmap
+pipenv install natlas-libnmap
 ```
 
 or via git:

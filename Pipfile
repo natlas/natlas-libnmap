@@ -8,6 +8,9 @@ nose = "*"
 black = "*"
 flake8 = "*"
 flynt = "*"
+twine = "*"
+setuptools = "*"
+wheel = "*"
 
 [packages]
 defusedxml = "*"

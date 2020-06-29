@@ -2,12 +2,12 @@
 
 ## Code status
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/9f7ca0cbe454b240f660/maintainability)](https://codeclimate.com/github/natlas/python-libnmap/maintainability)
-[![Release](https://img.shields.io/github/release/natlas/python-libnmap.svg)](https://github.com/natlas/python-libnmap/releases/latest)
-![Last Commit](https://img.shields.io/github/last-commit/natlas/python-libnmap.svg)
-![Total Downloads](https://img.shields.io/github/downloads/natlas/python-libnmap/total.svg)
-![Code Size](https://img.shields.io/github/languages/code-size/natlas/python-libnmap.svg)
-[![Contributors](https://img.shields.io/github/contributors/natlas/python-libnmap.svg)](https://github.com/natlas/python-libnmap/graphs/contributors)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9f7ca0cbe454b240f660/maintainability)](https://codeclimate.com/github/natlas/natlas-libnmap/maintainability)
+[![Release](https://img.shields.io/github/release/natlas/natlas-libnmap.svg)](https://github.com/natlas/natlas-libnmap/releases/latest)
+![Last Commit](https://img.shields.io/github/last-commit/natlas/natlas-libnmap.svg)
+![Total Downloads](https://img.shields.io/github/downloads/natlas/natlas-libnmap/total.svg)
+![Code Size](https://img.shields.io/github/languages/code-size/natlas/natlas-libnmap.svg)
+[![Contributors](https://img.shields.io/github/contributors/natlas/natlas-libnmap.svg)](https://github.com/natlas/natlas-libnmap/graphs/contributors)
 
 ## Summary
 
@@ -55,14 +55,14 @@ The old version of libnmap supported many versions of python going back to 2.7. 
 This version of libnmap has not been packaged for distribution on pypi as of yet. In the meantime, you can install it with pip directly from the git repo like so:
 
 ```bash
-pip install git+https://github.com/natlas/python-libnmap
+pip install git+https://github.com/natlas/natlas-libnmap
 ```
 
 or via git:
 
 ```bash
-git clone https://github.com/natlas/python-libnmap.git
-cd python-libnmap
+git clone https://github.com/natlas/natlas-libnmap.git
+cd natlas-libnmap
 python setup.py install
 ```
 

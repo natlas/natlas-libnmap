@@ -6,12 +6,12 @@ with open("README.md") as rfile:
     long_description = rfile.read()
 
 setup(
-    name="python-libnmap",
+    name="natlas-libnmap",
     version=libnmap.__version__,
     author="0xdade",
     author_email="dade@actualcrimes.org",
     packages=["libnmap", "libnmap.objects"],
-    url="http://pypi.python.org/pypi/python-libnmap/",
+    url="http://pypi.python.org/pypi/natlas-libnmap/",
     license='Creative Common "Attribution" license (CC-BY) v3',
     description=(
         "Python NMAP library enabling you to start async nmap tasks, "

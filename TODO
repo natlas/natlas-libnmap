@@ -1,6 +1,3 @@
 - improve API for NSE scripts
 - add support for post,pre and host scripts
 - complete unit tests with coverall support
-- Add new plugins to support import/export from mysql, couchdb, csv
-- add unittest for udp scans, ping sweeping
-- add support for 'resume' capability (see nmap --resume)

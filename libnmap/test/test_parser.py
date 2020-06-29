@@ -10,22 +10,19 @@ class TestNmapParser(unittest.TestCase):
     def setUp(self):
         fdir = os.path.dirname(os.path.realpath(__file__))
         self.flist_full = [
-            {"file": "%s/%s" % (fdir, "files/2_hosts.xml"), "hosts": 2},
-            {"file": "%s/%s" % (fdir, "files/1_hosts.xml"), "hosts": 1},
-            {
-                "file": "%s/%s" % (fdir, "files/1_hosts_banner_ports_notsyn.xml"),
-                "hosts": 1,
-            },
+            {"file": f"{fdir}/{'files/2_hosts.xml'}", "hosts": 2},
+            {"file": f"{fdir}/{'files/1_hosts.xml'}", "hosts": 1},
+            {"file": f"{fdir}/{'files/1_hosts_banner_ports_notsyn.xml'}", "hosts": 1,},
             # {'file': "%s/%s" % (fdir,
             #                      'files/1_hosts_banner_ports_xmas.xml'),
             #                      'hosts': 1},
-            {"file": "%s/%s" % (fdir, "files/1_hosts_banner_ports.xml"), "hosts": 1},
-            {"file": "%s/%s" % (fdir, "files/1_hosts_banner.xml"), "hosts": 1},
-            {"file": "%s/%s" % (fdir, "files/2_hosts_version.xml"), "hosts": 2},
+            {"file": f"{fdir}/{'files/1_hosts_banner_ports.xml'}", "hosts": 1},
+            {"file": f"{fdir}/{'files/1_hosts_banner.xml'}", "hosts": 1},
+            {"file": f"{fdir}/{'files/2_hosts_version.xml'}", "hosts": 2},
             # {'file': "%s/%s" % (fdir,
             #                      'files/2_null_hosts.xml'), 'hosts': 2},
-            {"file": "%s/%s" % (fdir, "files/2_tcp_hosts.xml"), "hosts": 2},
-            {"file": "%s/%s" % (fdir, "files/1_hosts_nohostname.xml"), "hosts": 1},
+            {"file": f"{fdir}/{'files/2_tcp_hosts.xml'}", "hosts": 2},
+            {"file": f"{fdir}/{'files/1_hosts_nohostname.xml'}", "hosts": 1},
         ]
         self.flist = self.flist_full
 

@@ -10,17 +10,17 @@ class TestNmapReportDiff(unittest.TestCase):
     def setUp(self):
         fdir = os.path.dirname(os.path.realpath(__file__))
         self.flist_full = [
-            {"file": "%s/%s" % (fdir, "files/2_hosts.xml"), "hosts": 2},
-            {"file": "%s/%s" % (fdir, "files/1_hosts.xml"), "hosts": 1},
+            {"file": f"{fdir}/{'files/2_hosts.xml'}", "hosts": 2},
+            {"file": f"{fdir}/{'files/1_hosts.xml'}", "hosts": 1},
         ]
         self.flist = self.flist_full
 
     def test_diff_host_list(self):
         fdir = os.path.dirname(os.path.realpath(__file__))
-        r1 = NmapParser.parse_fromfile("%s/%s" % (fdir, "files/1_hosts.xml"))
-        r2 = NmapParser.parse_fromfile("%s/%s" % (fdir, "files/2_hosts.xml"))
-        r3 = NmapParser.parse_fromfile("%s/%s" % (fdir, "files/1_hosts.xml"))
-        r4 = NmapParser.parse_fromfile("%s/%s" % (fdir, "files/2_hosts_achange.xml"))
+        r1 = NmapParser.parse_fromfile(f"{fdir}/{'files/1_hosts.xml'}")
+        r2 = NmapParser.parse_fromfile(f"{fdir}/{'files/2_hosts.xml'}")
+        r3 = NmapParser.parse_fromfile(f"{fdir}/{'files/1_hosts.xml'}")
+        r4 = NmapParser.parse_fromfile(f"{fdir}/{'files/2_hosts_achange.xml'}")
 
         d1 = r1.diff(r2)
         self.assertEqual(

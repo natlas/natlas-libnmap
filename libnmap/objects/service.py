@@ -237,11 +237,11 @@ class NmapService(object):
         if "method" in self._service and self._service["method"] == "probed":
             for relk in relevant:
                 if relk in skeys:
-                    b += "{0}: {1} ".format(relk, self._service[relk])
+                    b += f"{relk}: {self._service[relk]} "
             notrelevant = ["name", "method", "conf", "cpelist", "servicefp", "tunnel"]
             for mkey in skeys:
                 if mkey not in notrelevant and mkey not in relevant:
-                    b += "{0}: {1} ".format(mkey, self._service[mkey])
+                    b += f"{mkey}: {self._service[mkey]} "
         return b.rstrip()
 
     @property
@@ -298,7 +298,7 @@ class NmapService(object):
 
             :return: tuple
         """
-        return "{0}.{1}".format(self.protocol, self.port)
+        return f"{self.protocol}.{self.port}"
 
     def get_dict(self):
         """

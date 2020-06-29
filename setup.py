@@ -10,7 +10,7 @@ setup(
     version=libnmap.__version__,
     author="0xdade",
     author_email="dade@actualcrimes.org",
-    packages=["libnmap", "libnmap.plugins", "libnmap.objects"],
+    packages=["libnmap", "libnmap.objects"],
     url="http://pypi.python.org/pypi/python-libnmap/",
     license='Creative Common "Attribution" license (CC-BY) v3',
     description=(

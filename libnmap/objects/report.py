@@ -34,25 +34,6 @@ class NmapReport(object):
         if raw_data is not None:
             self.__set_raw_data(raw_data)
 
-    def save(self, backend):
-        """
-            This method gets a NmapBackendPlugin representing the backend.
-
-            :param backend: libnmap.plugins.PluginBackend object.
-
-            Object created by BackendPluginFactory and enabling nmap reports
-            to be saved/stored in any type of backend implemented in plugins.
-
-            The primary key of the stored object is returned.
-
-            :return: str
-        """
-        if backend is not None:
-            _id = backend.insert(self)
-        else:
-            raise RuntimeError
-        return _id
-
     def diff(self, other):
         """
             Calls NmapDiff to check the difference between self and
@@ -342,10 +323,7 @@ class NmapReport(object):
         """
         rdict = dict(
             [
-                (
-                    "{0}::{1}".format(_host.__class__.__name__, str(_host.id)),
-                    hash(_host),
-                )
+                (f"{_host.__class__.__name__}::{str(_host.id)}", hash(_host),)
                 for _host in self.hosts
             ]
         )

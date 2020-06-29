@@ -145,9 +145,9 @@ class NmapOSMatch(object):
         return _cpelist
 
     def __repr__(self):
-        rval = "{0}: {1}".format(self.name, self.accuracy)
+        rval = f"{self.name}: {self.accuracy}"
         for _osclass in self._osclasses:
-            rval += "\r\n  |__ os class: {0}".format(str(_osclass))
+            rval += f"\r\n  |__ os class: {str(_osclass)}"
         return rval
 
 
@@ -250,17 +250,17 @@ class NmapOSClass(object):
 
             :return: string
         """
-        rval = "{0}: {1}, {2}".format(self.type, self.vendor, self.osfamily)
+        rval = f"{self.type}: {self.vendor}, {self.osfamily}"
         if len(self.osgen):
-            rval += "({0})".format(self.osgen)
+            rval += f"({self.osgen})"
         return rval
 
     def __repr__(self):
-        rval = "{0}: {1}, {2}".format(self.type, self.vendor, self.osfamily)
+        rval = f"{self.type}: {self.vendor}, {self.osfamily}"
         if len(self.osgen):
-            rval += "({0})".format(self.osgen)
+            rval += f"({self.osgen})"
         for _cpe in self._cpelist:
-            rval += "\r\n    |__ {0}".format(str(_cpe))
+            rval += f"\r\n    |__ {str(_cpe)}"
         return rval
 
 
@@ -323,9 +323,7 @@ class NmapOSFingerprint(object):
             encapsulate an NmapOSClass object which was not matched with an
             existing NmapOSMatch object
         """
-        _dname = "{0}:{1}:{2}".format(
-            osclass_obj.type, osclass_obj.vendor, osclass_obj.osfamily
-        )
+        _dname = f"{osclass_obj.type}:{osclass_obj.vendor}:{osclass_obj.osfamily}"
         _dummy_dict = {
             "osmatch": {"name": _dname, "accuracy": osclass_obj.accuracy, "line": -1},
             "osclasses": [],
@@ -405,6 +403,6 @@ class NmapOSFingerprint(object):
     def __repr__(self):
         rval = ""
         for _osmatch in self.osmatches:
-            rval += "\r\n{0}".format(_osmatch)
+            rval += f"\r\n{_osmatch}"
         rval += "Fingerprints: ".format(self.fingerprint)
         return rval

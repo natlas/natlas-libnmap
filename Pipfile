@@ -5,11 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 nose = "*"
-pymongo = "*"
-sqlalchemy = "*"
-pymysql = "*"
 black = "*"
 flake8 = "*"
+flynt = "*"
 
 [packages]
 defusedxml = "*"

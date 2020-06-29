@@ -587,7 +587,7 @@ class NmapParser(object):
                 _osclass_dict = cls.__parse_osclass(xmltag)
                 rdict["osclasses"].append(_osclass_dict)
             else:
-                exmsg = "Unexcepted node in <osmatch>: {0}".format(xmltag.tag)
+                exmsg = f"Unexcepted node in <osmatch>: {xmltag.tag}"
                 raise NmapParserException(exmsg)
         return rdict
 
@@ -612,7 +612,7 @@ class NmapParser(object):
                 _cpe_string = xmltag.text
                 rdict["cpe"].append(_cpe_string)
             else:
-                exmsg = "Unexcepted node in <osclass>: {0}".format(xmltag.tag)
+                exmsg = f"Unexcepted node in <osclass>: {xmltag.tag}"
                 raise NmapParserException(exmsg)
         return rdict
 
@@ -635,7 +635,7 @@ class NmapParser(object):
             if xmltag.tag in ["finished", "hosts"]:
                 rdict[xmltag.tag] = cls.__format_attributes(xmltag)
             else:
-                exmsg = "Unexcepted node in <runstats>: {0}".format(xmltag.tag)
+                exmsg = f"Unexcepted node in <runstats>: {xmltag.tag}"
                 raise NmapParserException(exmsg)
 
         return rdict

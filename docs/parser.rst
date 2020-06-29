@@ -43,22 +43,9 @@ All of the above methods can receive as input:
 Small example::
 
     from libnmap.parser import NmapParser
-    
+
     nmap_report = NmapParser.parse_fromfile('libnmap/test/files/1_os_banner_scripts.xml')
     print "Nmap scan summary: {0}".format(nmap_report.summary)
-
-Basic usage from a processed scan::
-
-    from libnmap.process import NmapProcess
-    from libnmap.parser import NmapParser
-    
-    nm = NmapProcess("127.0.0.1, scanme.nmap.org")
-    nm.run()
-    
-    nmap_report = NmapParser.parse(nm.stdout)
-    
-    for scanned_hosts in nmap_report.hosts:
-        print scanned_hosts
 
 For more details on using the results from NmapParser, refer to the API of class: NmapReport, NmapHost, NmapService.
 

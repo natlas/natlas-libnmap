@@ -495,10 +495,7 @@ class NmapHost(object):
             :return dict
         """
         d = dict(
-            [
-                ("{0}::{1}".format(s.__class__.__name__, str(s.id)), hash(s))
-                for s in self.services
-            ]
+            [(f"{s.__class__.__name__}::{str(s.id)}", hash(s)) for s in self.services]
         )
 
         d.update(

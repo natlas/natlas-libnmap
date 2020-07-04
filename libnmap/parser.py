@@ -215,6 +215,7 @@ class NmapParser(object):
         """
 
         nreport = {}
+        nmapobj = None
         if list(rdict.keys())[0] == "__NmapReport__":
             r = rdict["__NmapReport__"]
             nreport["_runstats"] = r["_runstats"]
@@ -521,7 +522,7 @@ class NmapParser(object):
         for xscript in scripts_data:
             if xscript.tag == "script":
                 _script_dict = cls.__parse_script(xscript)
-            _host_scripts.append(_script_dict)
+                _host_scripts.append(_script_dict)
         return _host_scripts
 
     @classmethod

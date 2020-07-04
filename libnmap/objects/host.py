@@ -11,12 +11,12 @@ class NmapHost(object):
 
     def __init__(
         self,
-        starttime="",
-        endtime="",
-        address=None,
-        status=None,
-        hostnames=None,
-        services=None,
+        starttime: str = "",
+        endtime: str = "",
+        address: dict = None,
+        status: dict = None,
+        hostnames: list = None,
+        services: list = None,
         extras=None,
     ):
         """
@@ -235,10 +235,7 @@ class NmapHost(object):
 
             :return: bool
         """
-        rval = False
-        if self.status == "up":
-            rval = True
-        return rval
+        return self.status == "up"
 
     @property
     def hostnames(self):
@@ -300,6 +297,7 @@ class NmapHost(object):
         for _tmpservice in self._services:
             if _tmpservice.id == service_id:
                 rval = _tmpservice
+                break
         return rval
 
     def os_class_probabilities(self):
@@ -309,10 +307,7 @@ class NmapHost(object):
 
             :return: Array of NmapOSClass objects
         """
-        rval = []
-        if self.os is not None:
-            rval = self.os.osclasses
-        return rval
+        return self.os.osclasses if self.os is not None else []
 
     def os_match_probabilities(self):
         """
@@ -321,10 +316,7 @@ class NmapHost(object):
 
             :return: array of NmapOSMatches objects
         """
-        rval = []
-        if self.os is not None:
-            rval = self.os.osmatches
-        return rval
+        return self.os.osmatches if self.os is not None else []
 
     @property
     def os_fingerprinted(self):
@@ -342,10 +334,7 @@ class NmapHost(object):
 
             :return: string
         """
-        rval = ""
-        if self.os is not None:
-            rval = "\n".join(self.os.fingerprints)
-        return rval
+        return "\n".join(self.os.fingerprints) if self.os is not None else ""
 
     def os_ports_used(self):
         """
@@ -355,12 +344,7 @@ class NmapHost(object):
                                             'proto': 'tcp',
                                             'state': 'open'},]
         """
-        rval = []
-        try:
-            rval = self._extras["os"]["ports_used"]
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return self._extras.get("os", {}).get("ports_used", [])
 
     @property
     def tcpsequence(self):
@@ -370,12 +354,7 @@ class NmapHost(object):
 
             return: string
         """
-        rval = ""
-        try:
-            rval = self._extras["tcpsequence"]["difficulty"]
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return self._extras.get("tcpsequence", {}).get("difficulty", "")
 
     @property
     def ipsequence(self):
@@ -384,26 +363,16 @@ class NmapHost(object):
 
             :return: string
         """
-        rval = ""
-        try:
-            rval = self._extras["ipidsequence"]["class"]
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return self._extras.get("ipidsequence", {}).get("class", "")
 
     @property
     def uptime(self):
         """
             uptime of the remote host (if nmap was able to determine it)
 
-            :return: string (in seconds)
+            :return: int (in seconds)
         """
-        rval = 0
-        try:
-            rval = int(self._extras["uptime"]["seconds"])
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return int(self._extras.get("uptime", {}).get("seconds", 0))
 
     @property
     def lastboot(self):
@@ -412,12 +381,7 @@ class NmapHost(object):
 
             :return: string
         """
-        rval = ""
-        try:
-            rval = self._extras["uptime"]["lastboot"]
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return self._extras.get("uptime", {}).get("lastboot", "")
 
     @property
     def distance(self):
@@ -426,12 +390,7 @@ class NmapHost(object):
 
             :return: int
         """
-        rval = 0
-        try:
-            rval = int(self._extras["distance"]["value"])
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return int(self._extras.get("distance", {}).get("value", 0))
 
     @property
     def scripts_results(self):
@@ -440,12 +399,7 @@ class NmapHost(object):
 
             :return: array of <script> dictionary
         """
-        rval = {}
-        try:
-            rval = self._extras["hostscript"]
-        except (KeyError, TypeError):
-            pass
-        return rval
+        return self._extras.get("hostscript", {})
 
     @property
     def id(self):
@@ -459,7 +413,7 @@ class NmapHost(object):
     @property
     def extraports_state(self):
         """
-            dictionnary containing state and amount of extra ports scanned
+            dictionary containing state and amount of extra ports scanned
             for which a common state, usually, closed was discovered.
 
             :return: dict with keys 'state' and 'count' or None
